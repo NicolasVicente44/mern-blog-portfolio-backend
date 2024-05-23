@@ -18,7 +18,7 @@ const secret = "asdfe45we45w345wegw345werjktjwertkj";
 app.use(
   cors({
     credentials: true,
-    origin: "https://mern-stack-blog-portfolio-frontend.onrender.com",
+    origin: true, // Allow requests from any origin
   })
 );
 app.use(express.json());
