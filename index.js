@@ -48,6 +48,10 @@ mongoose
 //   }
 // });
 
+app.get("/", (req, res) => {
+  res.send("Hello from the backend!");
+});
+
 app.post("/login", async (req, res) => {
   const { username, password } = req.body;
   const userDoc = await User.findOne({ username });
