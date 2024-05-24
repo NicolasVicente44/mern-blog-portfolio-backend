@@ -10,16 +10,21 @@ const multer = require("multer");
 const uploadMiddleware = multer({ dest: "uploads/" });
 const fs = require("fs");
 require("dotenv").config();
-const cors = require('cors'); // Import the cors module
+const cors = require("cors"); // Import the cors module
 
 const salt = bcrypt.genSaltSync(10);
 const secret = "asdfe45we45w345wegw345werjktjwertkj";
 
 // Configure CORS
-const allowedOrigins = ['https://mern-stack-blog-portfolio-frontend.onrender.com'];
-app.use(cors({
-  origin: allowedOrigins
-}));
+const allowedOrigins = [
+  "https://mern-stack-blog-portfolio-frontend.onrender.com",
+];
+app.use(
+  cors({
+    origin: allowedOrigins,
+    credentials: true, // Add this line
+  })
+);
 
 app.use(express.json());
 app.use(cookieParser());
