@@ -10,6 +10,7 @@ const multer = require("multer");
 const uploadMiddleware = multer({ dest: "uploads/" });
 const fs = require("fs");
 require("dotenv").config();
+const cors = require('cors'); // Import the cors module
 
 const salt = bcrypt.genSaltSync(10);
 const secret = "asdfe45we45w345wegw345werjktjwertkj";
