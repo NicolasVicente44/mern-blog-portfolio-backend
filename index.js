@@ -27,6 +27,10 @@ app.use(
     allowedHeaders: ["Content-Type", "Authorization"], // Specify allowed headers
   })
 );
+app.use((req, res, next) => {
+  console.log(`${req.method} request for '${req.url}' - ${JSON.stringify(req.headers)}`);
+  next();
+});
 
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", req.headers.origin);
