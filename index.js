@@ -21,12 +21,13 @@ const allowedOrigins = [
 ];
 app.use(
   cors({
-    origin: true, // Allow all origins
+    origin: allowedOrigins,
     credentials: true, // Add this line
     methods: ["GET", "POST", "PUT", "DELETE"], // Specify the allowed HTTP methods
     allowedHeaders: ["Content-Type", "Authorization"], // Specify allowed headers
   })
 );
+app.options("*", cors());
 
 app.use(express.json());
 app.use(cookieParser());
