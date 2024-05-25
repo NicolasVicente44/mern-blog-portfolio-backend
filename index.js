@@ -27,6 +27,12 @@ app.use(
     allowedHeaders: ["Content-Type", "Authorization"], // Specify allowed headers
   })
 );
+
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", req.headers.origin);
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 app.options("*", cors());
 
 app.use(express.json());
